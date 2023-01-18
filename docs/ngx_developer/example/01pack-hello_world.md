@@ -2,7 +2,7 @@
 
 ## 安装
 
-确保您已经正确安装```NGINEX```，并从[这里](find_nginex.md)找到了```NGINEX```的路径。
+确保您已经正确安装```NGINEX```，并从[这里](../basis/02find_nginex.md)找到了```NGINEX```的路径。
 
 ## 目录结构
 

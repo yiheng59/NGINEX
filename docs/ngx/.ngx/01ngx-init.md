@@ -58,9 +58,9 @@ init(args: Optional[EntryArgs | dict | str]] = None)
 
 ## 使用案例
 
-如果您只是想初步了解何时使用```ngx.init```接口，可以看[这里](pack-hello_world.md)。
+如果您只是想初步了解何时使用```ngx.init```接口，可以看[这里](../../ngx_developer/example/01pack-hello_world.md)。
 
-如果您是高级开发人员，并想了解如何手动初始化```ngx```，[这里](better_pack.md)的`pack.py`中用到了手动初始化。
+如果您是高级开发人员，并想了解如何手动初始化```ngx```，[这里](../../ngx_developer/advanced/01better_pack.md)的`pack.py`中用到了手动初始化。
 
 
 
