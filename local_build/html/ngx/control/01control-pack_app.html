@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>打包接口：pack_app &mdash; NGINEX v1.0 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="安装应用接口：install_app" href="02control-install_app.html" />
+    <link rel="prev" title="ngx.control" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NGINEX
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">ngx接口手册</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ngx.control</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">打包接口：pack_app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">函数原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">返回值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">错误</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">使用案例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="02control-install_app.html">安装应用接口：install_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03control-uninstall_app.html">卸载应用接口：uninstall_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04control-run_app.html">运行应用接口：run_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05control-install_package.html">安装第三方库接口：install_package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NGINEX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">ngx接口手册</a></li>
+          <li class="breadcrumb-item"><a href="index.html">ngx.control</a></li>
+      <li class="breadcrumb-item active">打包接口：pack_app</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/ngx/control/01control-pack_app.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pack-app">
+<h1>打包接口：pack_app<a class="headerlink" href="#pack-app" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>函数原型<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pack_app</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scripts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">resources</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+         <span class="n">console</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lazy_res</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+         <span class="n">online_dependency</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+         <span class="n">offline_dependency</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+         <span class="n">apis_dependency</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">provide_apis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+         <span class="n">descrption</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+         <span class="n">icon</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>将你的应用打包成一个<code class="docutils literal notranslate"><span class="pre">.ngx</span></code>文件，以便分发给别人。</p>
+</section>
+<section id="id2">
+<h2>参数<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>name</strong> <em>(str)</em> - 这个应用的名字。</p></li>
+<li><p><strong>scripts</strong> <em>(str | List[str])</em> - 这个应用的所有脚本。如果仅传入一个字符串，则会将其视为一个只有一项的列表。此参数的第一项是这个应用的主文件，必须包含<code class="docutils literal notranslate"><span class="pre">ngx_entry</span></code>入口（详见：某link）。此参数中的每一项都必须是一个路径，指向一个<code class="docutils literal notranslate"><span class="pre">.py</span></code>或<code class="docutils literal notranslate"><span class="pre">.pyd</span></code>文件。</p></li>
+<li><p><strong>resources</strong> <em>(Optional[str | List[str]])</em> - 这个应用的所有资源文件。如果仅传入一个字符串，则会将其视为一个只有一项的列表。此参数的每一项都必须是一个路径，指向任意一个资源文件。在运行阶段，可以在<code class="docutils literal notranslate"><span class="pre">ngx.file</span></code>模块中，以<code class="docutils literal notranslate"><span class="pre">://</span></code>协议获取。（详见：某link）</p></li>
+<li><p><strong>console</strong> <em>(Optional[bool])</em> - 是否要在运行时显示控制台，默认<code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>lazy_res</strong> <em>(Optional[bool])</em> - 是否懒加载素材（详见：某link），默认<code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>online_dependency</strong> <em>(Optional[str | List[str]])</em> - 需要在线安装的python第三方库。如果仅传入一个字符串，则会将其视为一个只有一项的列表。在安装阶段，<code class="docutils literal notranslate"><span class="pre">NGINEX</span></code>会自动安装它们，并检查依赖关系。（详见）</p></li>
+<li><p><strong>offline_dependency</strong> <em>(Optional[str | List[str]])</em> - 需要离线安装的python第三方库。如果仅传入一个字符串，则会将其视为一个只有一项的列表。此列表中每一项都必须是一个路径，指向一个python第三方库的<code class="docutils literal notranslate"><span class="pre">.whl</span></code>安装文件。在打包阶段，<code class="docutils literal notranslate"><span class="pre">NGINEX</span></code>会包含这些<code class="docutils literal notranslate"><span class="pre">.whl</span></code>文件，并且在安装阶段自动安装它们，并检查依赖关系。（详见）</p></li>
+<li><p><strong>apis_dependency</strong> <em>(Optional[dict | List[dict])</em> - 依赖的由其他应用提供的<code class="docutils literal notranslate"><span class="pre">apis</span></code>接口。如果仅传入一个字典，则会将其视为一个只有一项的列表。此列表中每一项都必须是一个映射类型（即字典），也必须包含<code class="docutils literal notranslate"><span class="pre">name</span></code>（指明接口名）和<code class="docutils literal notranslate"><span class="pre">provided_by</span></code>（指明接口提供者）。如果格式有误，会报<code class="docutils literal notranslate"><span class="pre">NgxError</span></code>错误。在安装阶段，<code class="docutils literal notranslate"><span class="pre">NGINEX</span></code>会自动检查依赖关系。在运行阶段，你可以通过<code class="docutils literal notranslate"><span class="pre">ngx.apis</span></code>模块来获取这些接口（详见）。</p></li>
+<li><p><strong>provide_apis</strong> <em>(Optional[str | List[str]])</em> - 此应用提供的<code class="docutils literal notranslate"><span class="pre">apis</span></code>接口。如果仅传入一个字符串，则会将其视为一个只有一项的列表。此列表中每一项都必须是一个路径，指向一个文件夹。在打包阶段，<code class="docutils literal notranslate"><span class="pre">NGINEX</span></code>会包含这些接口。在运行阶段，其它应用就可以通过<code class="docutils literal notranslate"><span class="pre">ngx.apis</span></code>模块来获取这些接口，以便与您的应用交互。</p></li>
+<li><p><strong>description</strong> <em>(Optional[str])</em> - 用一行文字描述此应用。此描述将会在<code class="docutils literal notranslate"><span class="pre">NGEXCore</span></code>应用中作为<code class="docutils literal notranslate"><span class="pre">tooltip</span></code>展示给用户。</p></li>
+<li><p><strong>doc</strong> <em>(Optional[str])</em> - 用多行文字描述此应用。此描述将会在<code class="docutils literal notranslate"><span class="pre">NGEXCore</span></code>应用中作为<code class="docutils literal notranslate"><span class="pre">documentation</span></code>展示给用户。</p></li>
+<li><p><strong>icon</strong> <em>(Optional[str])</em> - 此应用的图标。应为一个路径，指向一个<code class="docutils literal notranslate"><span class="pre">.ico</span></code>文件。详见</p></li>
+<li><p><strong>dst</strong> <em>(Optional[str])</em> - 输出的<code class="docutils literal notranslate"><span class="pre">.ngx</span></code>文件的路径，允许省略<code class="docutils literal notranslate"><span class="pre">.ngx</span></code>后缀名。默认为这个应用的名称+<code class="docutils literal notranslate"><span class="pre">.ngx</span></code>。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>返回值<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>无（<code class="docutils literal notranslate"><span class="pre">None</span></code>）</p>
+</section>
+<section id="id4">
+<h2>错误<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>当<strong>apis_dependency</strong>参数填写的格式有误时：</p>
+<p><code class="docutils literal notranslate"><span class="pre">NgxError</span></code> <em>(args[0]=有误的那个对象)</em></p>
+<ul>
+<li><p>当列表中有一项不是<code class="docutils literal notranslate"><span class="pre">Mapping</span></code>时：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NgxError</span><span class="p">(</span><span class="s1">&#39;Each item of api dependency should be a dict:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>当列表中有一项映射没有<code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code>键时：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NgxError</span><span class="p">(</span><span class="s2">&quot;You should inform the name of the api:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>当列表中有一项映射没有<code class="docutils literal notranslate"><span class="pre">&quot;provided_by&quot;</span></code>键时：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NgxError</span><span class="p">(</span><span class="s2">&quot;You should inform which app provides the api:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>当<strong>provide_apis</strong>参数中尝试提供同样名称的接口时：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">FileExistsError</span><span class="p">(</span><span class="s2">&quot;Repeated api:*api的名字*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h2>使用案例<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p>详见</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="ngx.control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02control-install_app.html" class="btn btn-neutral float-right" title="安装应用接口：install_app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, yiheng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
