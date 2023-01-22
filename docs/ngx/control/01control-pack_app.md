@@ -5,6 +5,7 @@
 ```python
 pack_app(name: str, scripts: str | List[str], resources: Optional[str, List[str]] = None, 
          console: Optional[bool]=True, lazy_res: Optional[bool]=False, 
+         data_safe: Optional[bool] = True, scripts_safe: Optional[bool] = True, 
          online_dependency: Optional[str | List[str]] = None, 
          offline_dependency: Optional[str | List[str]] = None,
          apis_dependency: Optional[dict | List[dict]] = None, provide_apis=None,
@@ -29,6 +30,8 @@ pack_app(name: str, scripts: str | List[str], resources: Optional[str, List[str]
 
 - **console** *(Optional[bool])* - 是否要在运行时显示控制台，默认```True```
 - **lazy_res** *(Optional[bool])* - 是否懒加载素材（详见：某link），默认```True```
+- **data_safe** *(Optional[bool])* - 是否加密数据文件（详见：某link），默认`True`
+- **scripts_safe** *(Optional[bool])* - 是否加密代码（详见：某link），默认`True`
 - **online_dependency** *(Optional[str | List[str]])* - 需要在线安装的python第三方库。
   - 如果仅传入一个字符串，则会将其视为一个只有一项的列表。
   - 在安装阶段，```NGINEX```会自动安装它们，并检查依赖关系。（详见）

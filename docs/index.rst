@@ -10,5 +10,6 @@ NGINEX documentation
    :maxdepth: 2
    :caption: Contents:
 
+   ngx_user/index
    ngx_developer/index
    ngx/index
